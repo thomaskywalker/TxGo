@@ -12,8 +12,15 @@
 2. **`coldata.xlsx`** | *xlsx* with at least two columns <br>`ID` (sample ID) · `group` (Treat/Control) | optional `batch` column |
 ---
 
-## How to run (RStudio or VScode)
+## Installation
 
+```bash
+# clone the repository
+git clone https://github.com/thomaskywalker/TxGo.git
+cd TxGo
+```
+
+## How to run (RStudio or VScode)
 1. Open **`TxGo.R`**  
 2. Finish the configs
 3. Run analysis
