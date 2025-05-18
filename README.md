@@ -22,7 +22,7 @@ cd TxGo
 
 ## How to run (RStudio or VScode)
 1. Open **`TxGo.R`**  
-2. Add you data to the /data folder
+2. Add you data to the `data/` folder
 3. Finish the configs
 4. Run analysis
 5. Wait and see the results
