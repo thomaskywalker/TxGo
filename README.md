@@ -22,6 +22,9 @@ cd TxGo
 
 ## How to run (RStudio or VScode)
 1. Open **`TxGo.R`**  
-2. Finish the configs
-3. Run analysis
-4. Wait and see the results
+2. Add you data to the /data folder
+3. Finish the configs
+4. Run analysis
+5. Wait and see the results
+
+### Hint: You can always check the demo data before using yours
