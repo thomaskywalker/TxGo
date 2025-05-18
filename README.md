@@ -18,16 +18,3 @@
 2. Finish the configs
 3. Run analysis
 4. Wait and see the results
-
-## Structure
-project/
-├── data/
-│ ├── genes.readcount.mRNA.csv # raw counts (genes × samples)
-│ └── coldata.xlsx # sample metadata: ID | group | (batch)
-├── R/ # modular analysis functions
-│ ├── 01_DESeq2.R 05_MAPlot_Volcano.R
-│ ├── 02_PCA.R 06_GSEA.R
-│ ├── 03_Heatmap.R 07_GSEA_plot.R
-│ └── 04_VennDiagram.R 08_GSVA.R
-├── Run.R # environment setup + TxGo() definition
-└── TxGo.R # user config → Source = full analysis
