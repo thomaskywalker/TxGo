@@ -34,9 +34,9 @@ cd TxGo
 | ENSG00000187642 |  10 |   0 |   0 |   7 |   6 |   2 |
 | ENSG00000188290 | 470 | 114 | 170 | 256 |  59 | 116 |
 | ENSG00000187634 | 327 | 264 | 159 | 154 | 215 |  73 |
+| ... | ... | ... | ... | ... | ... | ... |
 
-
-2. **`coldata.xlsx`** | Contain at least two columns `ID` (sample ID) · `Group` (Treat/Control) | optional `batch` column |
+2. **`coldata.xlsx`** | Contain at least two columns `ID` (sample ID) · `Group` (Treat/Control) | optional `batch` |
 
 | ID | Group   |
 |----|---------|
