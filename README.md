@@ -17,15 +17,35 @@ cd TxGo
 6. Run analysis
 7. Wait and see the results
 
-**What it does**
+## What it does
 
 1. Differential expression
 2. PCA & Heatmap
 3. Volcano & MA plot
-4. GSEA (GO, KEGG, Hallmark)
+4. GSEA (GO, KEGG, Hallmark) analysis and visualisation
 
 ## Input files (put in `data/`)
-1. **`genes.readcount.mRNA.csv`** | *csv* • rows = Ensembl IDs • columns = sample IDs | raw integer counts |
-2. **`coldata.xlsx`** | *xlsx* with at least two columns <br>`ID` (sample ID) · `group` (Treat/Control) | optional `batch` column |
+1. **`genes.readcount.mRNA.csv`** | rows = Ensembl IDs • columns = sample IDs
+
+|               | 1   | 2   | 3   | 4   | 5   | 6   |
+|---------------|-----|-----|-----|-----|-----|-----|
+| ENSG00000187961 | 405 | 202 | 355 | 333 | 461 | 241 |
+| ENSG00000187583 |  89 | 112 |  59 | 170 | 200 | 162 |
+| ENSG00000187642 |  10 |   0 |   0 |   7 |   6 |   2 |
+| ENSG00000188290 | 470 | 114 | 170 | 256 |  59 | 116 |
+| ENSG00000187634 | 327 | 264 | 159 | 154 | 215 |  73 |
+
+
+2. **`coldata.xlsx`** | Contain at least two columns `ID` (sample ID) · `Group` (Treat/Control) | optional `batch` column |
+
+| ID | Group   |
+|----|---------|
+| 1  | Normal  |
+| 2  | Normal  |
+| 3  | Normal  |
+| 4  | Patient |
+| 5  | Patient |
+| 6  | Patient |
+
 
 ### Hint: You can always check the demo data before using yours
