@@ -25,7 +25,7 @@ cd TxGo
 4. GSEA (GO, KEGG, Hallmark) analysis and visualisation
 
 ## Input files (put in `data/`)
-1. **`genes.readcount.mRNA.csv`** | rows = Ensembl IDs • columns = sample IDs
+1. **`genes.readcount.mRNA.csv`** rows = Ensembl IDs • columns = sample IDs
 
 |               | 1   | 2   | 3   | 4   | 5   | 6   |
 |---------------|-----|-----|-----|-----|-----|-----|
@@ -47,5 +47,4 @@ cd TxGo
 | 5  | Patient |
 | 6  | Patient |
 
-
-### Hint: You can always check the demo data before using yours
+## Hint: You can always check the demo data before using yours
