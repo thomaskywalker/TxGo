@@ -20,8 +20,8 @@ git clone https://github.com/thomaskywalker/TxGo.git
 cd TxGo
 ```
 
-## How to run (RStudio or VScode)
-1. Open **`TxGo.R`**  
+## How to run (Run in VScode or use R project)
+1. Open **`TxGo.R`** (Do not open files in R/) 
 2. Add you data to the `data/` folder
 3. Finish the configs
 4. Run analysis
