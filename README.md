@@ -1,6 +1,6 @@
 # TxGo ▸  one-click bulk-RNA-seq analysis
 
-## Installation
+## Installation (Terminal)
 
 ```bash
 # clone the repository
