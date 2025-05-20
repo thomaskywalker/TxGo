@@ -39,23 +39,25 @@ run_GSEAplots <- function(res_list,
     dot <- dotplot(gr, orderBy = "NES", showCategory = 5, split = ".sign") +
       facet_grid(. ~ .sign) +
       ggtitle(paste(title, cat)) +
-      theme(plot.title = element_text(size = 14))
+      theme(plot.title = element_text(size = 14),
+      axis.text.x  = element_text(size = 8))
 
     ggsave(
       filename = file.path(output_dir, paste0(prefix, cat, "_dot.png")),
       plot     = dot,
-      width    = 6, height = 6, dpi = 300
+      width    = 7, height = 7, dpi = 300
     )
 
     ## ridge plot --------------------------------------------------------
     ridge <- ridgeplot(gr, orderBy = "NES", showCategory = 10) +
       ggtitle(paste(title, cat)) +
-      theme(plot.title = element_text(size = 14))
+      theme(plot.title = element_text(size = 14),
+      axis.text.x  = element_text(size = 8))
 
     ggsave(
       filename = file.path(output_dir, paste0(prefix, cat, "_ridge.png")),
       plot     = ridge,
-      width    = 6, height = 6, dpi = 300
+      width    = 7, height = 7, dpi = 300
     )
   }
 

@@ -85,6 +85,9 @@ run_Heatmap <- function(dds,
   )
   ann_colors <- list(Group = group_colors)
 
+  colnames(ann) <- "Group          "
+  names(ann_colors) <- "Group          "
+  
   ## --------------------------------------------------------------------- ##
   ## 6  Plot and save
   pheatmap(

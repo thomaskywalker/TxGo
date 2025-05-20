@@ -1,6 +1,15 @@
 # TxGo ▸  one-click bulk-RNA-seq analysis
 
-## Installation (Terminal)
+TxGo integrated state-of-the-art transcriptome analysis tools into a wrapper function, and is easy to operate. Perfect for bench scientist as a starter kit.
+
+## What it does
+
+1. Differential gene expression (DGE) analysis
+2. PCA & Heatmap
+3. Volcano & MA plot
+4. GSEA (GO, KEGG, Hallmark) analysis and visualisation
+
+## Install (Terminal)
 
 ```bash
 # clone the repository
@@ -16,13 +25,6 @@ cd TxGo
 5. Finish the configs
 6. Run analysis
 7. Wait and see the results
-
-## What it does
-
-1. Differential expression
-2. PCA & Heatmap
-3. Volcano & MA plot
-4. GSEA (GO, KEGG, Hallmark) analysis and visualisation
 
 ## Input files (put in `data/`)
 1. **`genes.readcount.mRNA.csv`** rows = Ensembl IDs • columns = sample IDs

@@ -24,6 +24,7 @@ cran_pkgs <- c(
   "writexl",
   # visualisation helpers
   "ggpubr",
+  "ggalt",
   "cowplot",
   "pheatmap",
   "matrixStats",
@@ -102,43 +103,90 @@ TxGo <- function(count_file,
     coldata$Group,
     levels = unlist(group_names)
   )
+  group_colors <- setNames(group_colors, unlist(group_names))
   
-  # (b) 1. DESeq2
-  dds_out <- run_DESeq2(
-    counts = counts,
-    coldata     = coldata,
-    species_code = species_code
-  )
+  ## helper: run quietly --------------------------------------------------
+  quiet <- function(expr) {
+    nullfile <- if (.Platform$OS.type == "windows") "NUL" else "/dev/null"
+    zz_out <- file(nullfile, open = "w")
+    zz_msg <- file(nullfile, open = "w")
+
+    sink(zz_out)
+    sink(zz_msg, type = "message")
+
+    on.exit({
+      sink(type = "message")
+      sink()
+      close(zz_out); close(zz_msg)
+    })
+
+    invisible( suppressWarnings(force(expr) ) )
+  }
+
+  ## banner printer -------------------------------------------------------
+  banner <- function(what, done = FALSE) {
+    line <- strrep("-", 60)
+    if (!done) cat(line, "\nRunning", what, "...\n")
+    else       cat("Done!\n")
+  }
+
+  ## TxGo steps -----------------------------------------------------------
+  banner("DEG analysis")
+  quiet({
+    dds_out <- run_DESeq2(
+      counts       = counts,
+      coldata      = coldata,
+      species_code = species_code
+    )
+  })
+  banner("DEG analysis", done = TRUE)
+
+  banner("PCA")
+  quiet({
+    pca_out <- run_PCA(
+      dds          = dds_out$dds,
+      coldata      = coldata,
+      group_names  = group_names,
+      group_colors = group_colors
+    )
+  })
+  banner("PCA", done = TRUE)
+
+  banner("Heatmap")
+  quiet({
+    run_Heatmap(
+      dds          = dds_out$dds,
+      coldata      = coldata,
+      group_colors = group_colors
+    )
+  })
+  banner("Heatmap", done = TRUE)
+
+  banner("MA plot")
+  quiet({
+    run_MA_Plots(dds_out$res)
+  })
+  banner("MA plot", done = TRUE)
+
+  banner("Volcano plot")
+  quiet({
+    run_Volcano_Plots(dds_out$res)
+  })
+  banner("Volcano plot", done = TRUE)
+
+  banner("GSEA")
+  quiet({
+    gsea_list <- run_GSEA(dds_out$res, species_code = species_code)
+  })
+  banner("GSEA", done = TRUE)
+
+  banner("GSEA plots")
+  quiet({
+    run_GSEAplots(res_list = gsea_list)
+  })
+  banner("GSEA plots", done = TRUE)
   
-  # (c) 2. PCA
-  pca_out <- run_PCA(
-    dds          = dds_out$dds,
-    coldata      = coldata,
-    group_names  = group_names,
-    group_colors = group_colors
-  )
-  
-  # (d) 3. Heatmap
-  run_Heatmap(
-    dds          = dds_out$dds,
-    coldata      = coldata,
-    group_colors = group_colors,
-    batch_col    = NULL,  # or NULL if no batch column
-    top_n        = NULL      # plot all  genes
-  )
-  
-  # (f) 5. MA & Volcano
-  run_MA_Plots(dds_out$res)
-  run_Volcano_Plots(dds_out$res)
-  
-  # (g) 6. GSEA
-  gsea_list <- run_GSEA(dds_out$res, species_code = species_code)
-  
-  # (h) 7. GSEA plot
-  run_GSEAplots(res_list = gsea_list)
-  
-  
-  message("=== All analyses are done === \n=== Happy Bioinformatics ===")
+  message("=== All analyses are done ===  Happy Bioinformatics! ===")
 }
 
 

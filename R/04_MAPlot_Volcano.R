@@ -78,7 +78,8 @@ run_Volcano_Plots <- function(res,
       drawConnectors = TRUE,
       widthConnectors = 1.0,
       colConnectors = 'black',
-      legendPosition = 'right'
+      legendPosition = 'right',
+      legendLabSize = 14
     )
     return(p)
   }

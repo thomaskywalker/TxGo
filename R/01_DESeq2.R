@@ -33,6 +33,7 @@ run_DESeq2 <- function(counts,
   ## 2 預過濾 + DESeq()
   keep <- rowSums(counts(dds)) >= 10
   dds  <- dds[keep, ]
+
   dds  <- DESeq2::DESeq(dds)
 
   res <- results(dds)
