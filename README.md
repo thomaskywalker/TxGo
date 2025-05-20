@@ -49,4 +49,4 @@ cd TxGo
 | 5  | Patient |
 | 6  | Patient |
 
-## Hint: You can always check the demo data before using yours
+## Hint: You can always run with the demo data before using yours
